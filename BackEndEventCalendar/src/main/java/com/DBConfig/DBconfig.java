@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan(basePackages= {"com.SchedulerBackEnd.BackEndEventCalendar"})
+@ComponentScan(basePackages= {"com.SchedulerBackEnd"})
 public class DBconfig {
 DriverManagerDataSource dataSource=new DriverManagerDataSource();
 	
