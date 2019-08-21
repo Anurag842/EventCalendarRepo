@@ -1,4 +1,4 @@
-package Entities;
+package com.entities;
 
 
 import java.util.HashSet;
@@ -22,7 +22,7 @@ public class Client {
 	
 	private String agenda;
 	
-	@OneToMany(cascade=CascadeType.ALL,mappedBy="cli")
+	@OneToMany(cascade=CascadeType.PERSIST,mappedBy="cli",fetch=FetchType.EAGER)
 	private Set<Events> eve=new HashSet<Events>();
 	
 	

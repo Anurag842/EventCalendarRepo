@@ -1,4 +1,4 @@
-package Daos;
+package com.daos;
 
 import java.util.List;
 
@@ -6,12 +6,14 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import Entities.Client;
+import com.entities.Client;
 
-@Repository(value="ClientDao")
+
+@Repository(value="clientDao")
 @Transactional
 public class ClientDaoImpl implements ClientDao{
 
@@ -23,7 +25,7 @@ public class ClientDaoImpl implements ClientDao{
 			
 			Session session=sf.getCurrentSession();
 			
-			session.save(c);
+			session.persist(c);
 			return true;
 			
 		}
@@ -50,7 +52,7 @@ public class ClientDaoImpl implements ClientDao{
 		
 		try {
 			Session session=sf.getCurrentSession();
-			Query q=session.createQuery("from Category");
+			Query q=session.createQuery("from Client");
 			return q.getResultList();
 			
 		}
@@ -58,11 +60,12 @@ public class ClientDaoImpl implements ClientDao{
 		return null;
 	}
 
-	public boolean delClient(Client c) {
+	public boolean delClient(int clientId) {
 		
 		try {
 			Session session=sf.getCurrentSession();
-				session.delete(c);
+			Client cat=session.get(Client.class, clientId);
+				session.delete(cat);
 				return true;
 			
 			}

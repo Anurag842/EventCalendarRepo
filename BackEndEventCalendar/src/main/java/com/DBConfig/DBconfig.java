@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan(basePackages= {"com.SchedulerBackEnd"})
+@ComponentScan(basePackages= {"com.daos"})
 public class DBconfig {
 DriverManagerDataSource dataSource=new DriverManagerDataSource();
 	
@@ -42,7 +42,7 @@ DriverManagerDataSource dataSource=new DriverManagerDataSource();
 		
 		LocalSessionFactoryBuilder sb=new LocalSessionFactoryBuilder(getDataSource());
 		sb.addProperties(p);
-		sb.scanPackages("com.Entities");
+		sb.scanPackages("com.entities");
 		
 		return sb.buildSessionFactory();		
 	}

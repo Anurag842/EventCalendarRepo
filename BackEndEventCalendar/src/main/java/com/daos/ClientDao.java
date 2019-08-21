@@ -1,14 +1,17 @@
-package Daos;
+package com.daos;
 
 import java.util.List;
 
-import Entities.Client;
+import org.springframework.stereotype.Repository;
+
+import com.entities.Client;
+
 
 public interface ClientDao {
 
 	public boolean addClient(Client c);
 	public Client viewClient(int id);
 	public List<Client> getAllClient();
-	public boolean delClient(Client c);
+	public boolean delClient(int clientId);
 	public boolean updateClient(Client c);
 }

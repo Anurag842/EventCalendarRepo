@@ -1,4 +1,4 @@
-package Entities;
+package com.entities;
 
 import javax.persistence.*;
 
@@ -15,9 +15,8 @@ public class Events {
 	private String endTimeDate;
 	private String place;
 	
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne(cascade=CascadeType.PERSIST)
 	private Client cli;
-	
 	
 	public String getPlace() {
 		return place;
@@ -55,7 +54,5 @@ public class Events {
 	public void setEndTimeDate(String endTimeDate) {
 		this.endTimeDate = endTimeDate;
 	}
-	
-	
 	
 }

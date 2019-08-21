@@ -1,15 +1,18 @@
-package Daos;
+package com.daos;
+
+import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import Entities.Client;
-import Entities.Events;
+import com.entities.Client;
+import com.entities.Events;
 
-@Repository(value="EventDao")
+@Repository(value="eventDao")
 @Transactional
 public class EventDaoImpl implements EventDao{
 
@@ -21,7 +24,7 @@ public class EventDaoImpl implements EventDao{
 			
 			Session session=sf.getCurrentSession();
 			
-			session.save(c);
+			session.persist(c);
 			return true;
 			
 		}
@@ -41,6 +44,19 @@ public class EventDaoImpl implements EventDao{
 			}
 			catch(Exception e) {e.printStackTrace();}
 			return null;
+	}
+
+	public List<Events> viewAllEventsById(int cid) {
+		try {
+			Session session=sf.getCurrentSession();
+			Query q=session.createQuery("from Events where cli.clientId =:x");
+			q.setParameter("x", cid);
+			return q.getResultList();
+			
+		}
+		catch(Exception e) {e.printStackTrace();}
+		return null;
+		
 	}
 	
 }
