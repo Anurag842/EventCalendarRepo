@@ -121,8 +121,36 @@
 </div>
 
 <div id="View" class="tabcontent">
-  <h3>View visits</h3>
-  <p>Schedule</p> 
+  <div align="center">
+	<h1>View Clients</h1>
+	<table >
+		<tr>
+			<th>Client Id</th>
+			<th>Client Name</th>
+			<th>Project Name</th>
+			
+			<th>Arrival Date</th>
+			<th>Departure Date</th>
+			<th>Agenda</th>
+			<th>View Itinerary</th>
+			
+		</tr>
+		<c:forEach items="${clientList}" var="clients">	
+			<tr>
+				<td>${clients.clientId}</td>
+				<td>${clients.clientName}</td>
+				<td>${clients.projectName}</td>
+				
+				<td>${clients.arrivalDate}</td>
+				<td>${clients.deptDate}</td>
+				<td>${clients.agenda}</td>
+				
+				<td><a href="viewEvents/${clients.clientId}">View</a></td>
+				
+			</tr>
+		</c:forEach>
+	</table>
+	</div> 
 </div>
 <script>
 $(document).ready(function(){

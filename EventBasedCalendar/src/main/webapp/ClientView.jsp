@@ -4,11 +4,28 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+tr:hover {background-color:#f5f5f5;}
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial;
+  }
+</style>
 </head>
 <body>
-
+<div align="center">
 	<h1>View Clients</h1>
 	<table border="1">
 		<tr>
@@ -30,10 +47,12 @@
 				<td>${clients.arrivalDate}</td>
 				<td>${clients.deptDate}</td>
 				
-				<td><a href="updateCategory/${clients.clientId}">View</a></td>
+				<td><a href="viewEvents/${clients.clientId}">View</a></td>
 				
 			</tr>
 		</c:forEach>
 	</table>
+	</div>
 </body>
+
 </html>
