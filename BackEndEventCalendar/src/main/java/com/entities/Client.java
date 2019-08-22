@@ -6,6 +6,8 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 @Table
 public class Client {
@@ -14,10 +16,13 @@ public class Client {
 	@GeneratedValue
 	private int clientId;
 	
+	@NotEmpty
 	private String clientName;
+	@NotEmpty
 	private String projectName;
-	
+	@NotEmpty
 	private String arrivalDate;
+	@NotEmpty
 	private String deptDate;
 	
 	private String agenda;
