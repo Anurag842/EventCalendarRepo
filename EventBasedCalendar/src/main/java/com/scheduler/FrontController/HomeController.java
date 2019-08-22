@@ -29,12 +29,8 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="/submitOnDb" , method=RequestMethod.POST)
-	public String submitClient(@ModelAttribute @Valid Client cObj,ModelMap map,BindingResult result){
-		if(result.hasErrors()){
-			System.out.println("I m in if having errors.");
-			return "HomePage";
-
-		}
+	public String submitClient(@ModelAttribute Client cObj,ModelMap map){
+		
 		clientDao.addClient(cObj);
 		map.addAttribute("msg","{Data Added successfully");
 		return "HomePage";

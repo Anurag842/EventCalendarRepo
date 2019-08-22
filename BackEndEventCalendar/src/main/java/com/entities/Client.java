@@ -16,13 +16,13 @@ public class Client {
 	@GeneratedValue
 	private int clientId;
 	
-	@NotEmpty
+	@NotEmpty(message="Cannot be empty")
 	private String clientName;
-	@NotEmpty
+	@NotEmpty(message="Cannot be empty")
 	private String projectName;
-	@NotEmpty
+	@NotEmpty(message="Cannot be empty")
 	private String arrivalDate;
-	@NotEmpty
+	@NotEmpty(message="Cannot be empty")
 	private String deptDate;
 	
 	private String agenda;
